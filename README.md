@@ -76,7 +76,7 @@ Erfolgreich umgesetzte Aufgaben:
 ---
 
 ## ❗ Was war nicht ideal
-- Die ODrive-Dokumentation war teilweise unvollständig und erschwerte die Implementierung.
+- Die ODrive-Dokumentation war teilweise benutzerunfreundlich und erschwerte die Implementierung.
 
 ---
 
