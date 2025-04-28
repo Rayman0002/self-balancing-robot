@@ -1,10 +1,34 @@
-# 🚀 Projektname
+# 🤖 Self-Balancing Robot
 
 ## 📚 Projektbeschreibung
 Hier eine kurze Beschreibung deines Projekts. 
 - Was macht das Projekt?
 - Welche Technologien/Sprachen wurden verwendet?
 - Besonderheiten oder Zielsetzung?
+
+---
+
+## 📦 Libraries
+Hier eine Liste aller verwendeten Bibliotheken/Frameworks:
+- [Bibliothek 1](Link falls vorhanden)
+- [Bibliothek 2](Link falls vorhanden)
+- Weitere Libraries...
+
+---
+
+## 🧩 Bauteile
+Hier eine Übersicht der verwendeten Hardware-Komponenten oder Materialien:
+- Bauteil 1 (z.B. Arduino Uno, ESP32, etc.)
+- Bauteil 2 (z.B. Motoren, Sensoren, LEDs)
+- Weitere Bauteile...
+
+---
+
+## 🖇️ Schaltskizze
+Hier kannst du die Schaltskizze(n) einfügen:
+- Diagramme, Fritzing-Skizzen oder andere Schaltpläne
+- Beispiel: 
+  ![Schaltskizze](pfad/zur/schaltskizze.png)
 
 ---
 
