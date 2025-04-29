@@ -45,7 +45,7 @@ Verwendete Hardware-Komponenten:
 
 ## 🖇️ Schaltskizze
 Hier eine beispielhafte Darstellung der Schaltung:
-![Schaltskizze](pfad/zur/schaltskizze.png)
+![Schaltskizze](https://github.com/Rayman0002/self-balancing-robot/blob/33c866d676f7b91e81d3d77172d776f20e32ad41/Images/shematic.png)
 
 ---
 
