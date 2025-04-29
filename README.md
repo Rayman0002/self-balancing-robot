@@ -22,7 +22,8 @@ Das Robotergestell wurde aus Aluminiumprofilen gefertigt, die zugeschnitten und 
 
 ---
 
-## Bilder und Videos  
+## Bilder und Videos
+Sämtliche Bilder und Videos sind ebenso noch seperat im Ordner "Bilder und Videos" einsehbar und downloadbar.
 
 ### Bild des Roboters
 ![Screenshot](https://github.com/Rayman0002/self-balancing-robot/blob/6b631fcdf1065fbe495b8506c45cfa88e2e9ab59/Images/roboter.png)
