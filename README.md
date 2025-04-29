@@ -44,7 +44,6 @@ Verwendete Hardware-Komponenten:
 ---
 
 ## 🖇️ Schaltskizze
-Hier eine beispielhafte Darstellung der Schaltung:
 ![Schaltskizze](https://github.com/Rayman0002/self-balancing-robot/blob/33c866d676f7b91e81d3d77172d776f20e32ad41/Images/shematic.png)
 
 ---
@@ -52,10 +51,10 @@ Hier eine beispielhafte Darstellung der Schaltung:
 ## 📦 Libraries
 Verwendete Bibliotheken/Frameworks:
 - `Wire`
-- `I2Cdev`
+- `I2Cdev` (stammt von Jeff Rowberg)
 - `ODriveUART`
-- `PID_v1`
-- `MPU6050_6Axis_MotionApps20`
+- `PID_v1` (stammt von Jeff Rowberg)
+- `MPU6050_6Axis_MotionApps20` (stammt von Jeff Rowberg)
   
 ---
 ## 🛠️ Durchgeführt
