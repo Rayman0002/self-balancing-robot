@@ -23,18 +23,16 @@ Das Robotergestell wurde aus Aluminiumprofilen gefertigt, die zugeschnitten und 
 ---
 
 ## Bilder und Videos  
-**🖼️ Bilder und Videos**
 
 ### Bild des Roboters
 ![Screenshot](https://github.com/Rayman0002/self-balancing-robot/blob/6b631fcdf1065fbe495b8506c45cfa88e2e9ab59/Images/roboter.png)
 
-### Beispielvideo
+### Video des Balanciervorgangs
 [![Video ansehen](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
 
 ---
 
 ## Bauteile  
-**🧩 Bauteile**
 
 Verwendete Hardware-Komponenten:
 - Teensy 4.0
@@ -47,14 +45,12 @@ Verwendete Hardware-Komponenten:
 ---
 
 ## Schaltskizze  
-**🖇️ Schaltskizze**
 
 ![Schaltskizze](https://github.com/Rayman0002/self-balancing-robot/blob/33c866d676f7b91e81d3d77172d776f20e32ad41/Images/shematic.png)
 
 ---
 
 ## Libraries  
-**📦 Libraries**
 
 Verwendete Bibliotheken/Frameworks:
 - `Wire`
@@ -66,7 +62,6 @@ Verwendete Bibliotheken/Frameworks:
 ---
 
 ## Durchgeführt  
-**🛠️ Durchgeführt**
 
 Erfolgreich umgesetzte Aufgaben:
 - Mechanische Konstruktion und Fertigung
@@ -76,7 +71,6 @@ Erfolgreich umgesetzte Aufgaben:
 ---
 
 ## Dead-Locks  
-**🧩 Dead-Locks**
 
 Kritische Punkte:
 - Zyklisches Prüfen und Quittieren von Motorfehlern
@@ -86,14 +80,12 @@ Kritische Punkte:
 ---
 
 ## Was war nicht ideal  
-**❗ Was war nicht ideal**
 
 - Die ODrive-Dokumentation war teilweise benutzerunfreundlich und erschwerte die Implementierung.
 
 ---
 
 ## Erweiterungen  
-**✨ Erweiterungen**
 
 Geplante Features oder mögliche Erweiterungen für zukünftige Versionen:
 - Not-Aus-Schalter integrieren
