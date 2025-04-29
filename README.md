@@ -13,8 +13,7 @@
 
 ---
 
-## Projektbeschreibung  
-**📚 Projektbeschreibung**
+## Projektbeschreibung
 
 Ziel des Projekts war die Entwicklung und Realisierung eines selbstbalancierenden Roboters. Vorgegeben waren hierfür die zu verwendenden Motoren von ODrive sowie einige Anforderungen an das Design.  
 Der Roboter ist ca. 75 cm hoch, weist eine Tragkraft von 10 kg auf und verfügt über eine Akkulaufzeit von über 2 Stunden.
