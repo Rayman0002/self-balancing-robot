@@ -13,12 +13,29 @@
 
 ---
 
-## Projektbeschreibung
+## Projektbeschreibung  
 
-Ziel des Projekts war die Entwicklung und Realisierung eines selbstbalancierenden Roboters. Vorgegeben waren hierfür die zu verwendenden Motoren von ODrive sowie einige Anforderungen an das Design.  
-Der Roboter ist ca. 75 cm hoch, weist eine Tragkraft von 10 kg auf und verfügt über eine Akkulaufzeit von über 2 Stunden.
+Das Ziel dieses Projekts war es, einen selbstbalancierenden zweirädrigen Roboter zu entwerfen, zu konstruieren und zu programmieren. Dabei handelt es sich um ein mechatronisches System, das aufrecht bleibt, indem es kontinuierlich seine Position und Lage im Raum erkennt und entsprechend gegensteuert – vergleichbar mit einem inversen Pendel.
 
-Das Robotergestell wurde aus Aluminiumprofilen gefertigt, die zugeschnitten und individuell angepasst wurden. Sämtliche Halterungen für die Bauteile sowie die Radaufnahmen wurden mithilfe des 3D-Druckverfahrens hergestellt.
+### Motivation
+Selbstbalancierende Roboter sind ein beliebtes Thema in der Robotik, da sie komplexe Regelungstechnik mit Sensorik, Echtzeitverarbeitung und Aktorik verbinden. Dieses Projekt diente dem praktischen Verständnis dieser Disziplinen und der Integration moderner Komponenten wie ODrive-Motorsteuerungen, MPU6050-Sensorik und Echtzeitregelung mit einem Teensy 4.0 Microcontroller.
+
+### Technische Umsetzung
+Der Roboter ist ca. 75 cm hoch, trägt Lasten bis zu 10 kg und erreicht eine Akkulaufzeit von über 2 Stunden. Die Hauptkomponenten sind:
+- Zwei kraftvolle bürstenlose Gleichstrommotoren (BLDC), gesteuert über das ODrive S1 Board.
+- Eine IMU (MPU6050) zur Lagemessung, welche über I2C ausgelesen wird.
+- Ein Teensy 4.0 als Hauptcontroller für das Regelungssystem (PID).
+- Ein Raspberry Pi 5 als optionaler Companion-Computer für höhere Funktionen wie Netzwerkzugang oder ROS-Integration.
+
+Das Chassis wurde aus Aluminiumprofilen gefertigt, um Robustheit und Modularität zu gewährleisten. Zusätzlich wurden alle spezifischen Halterungen und Aufnahmen im 3D-Druckverfahren gefertigt.
+
+### Steuerung und Regelung
+Ein PID-Regler balanciert den Roboter anhand der Sensordaten. Die Software berücksichtigt die Trägheit, die Position und Geschwindigkeit der Motoren und die Neigung des Roboters. Die Sensorwerte werden mit einem Komplementärfilter geglättet, um stabile und verlässliche Steuerdaten zu erhalten.
+
+### Besonderheiten
+- Der Einsatz der ODrive-Plattform stellte hohe Anforderungen an das Timing und die Fehlerbehandlung im Echtzeitbetrieb.
+- Die mechanische Konstruktion musste stabil und gleichzeitig leicht sein.
+- Der Code wurde so gestaltet, dass spätere Erweiterungen wie ROS-Anbindung oder Fernsteuerung einfach möglich sind.
 
 ---
 
