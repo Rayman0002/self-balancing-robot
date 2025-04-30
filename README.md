@@ -162,10 +162,7 @@ Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglich
 - **Autonome Navigation & Kartographierung (SLAM)**  
   Eine langfristige Erweiterung ist die Ausstattung mit LiDAR oder Kamera zur Umgebungswahrnehmung. Mittels SLAM (Simultaneous Localization and Mapping) könnte der Roboter eigenständig Räume kartieren und navigieren.
 
-- **Erweiterte Regelungsalgorithmen (z. B. LQR)**  
-  Anstelle des klassischen PID-Reglers könnte ein modellbasierter Zustandsregler (z. B. LQR – Linear Quadratic Regulator) eingesetzt werden. Solche Methoden erlauben eine präzisere Reaktion auf komplexe Dynamiken, insbesondere bei wechselnder Last oder höherer Geschwindigkeit.
-
-- **Stromüberwachung & Batteriemanagement**  
-  Ein BMS (Battery Management System) sowie Sensoren zur Spannungs- und Strommessung könnten integriert werden, um Laufzeit zu optimieren und Tiefentladung zu vermeiden.
+- **Erweiterte Regelungsalgorithmen**  
+  Anstelle des klassischen PID-Reglers könnte ein modellbasierter Zustandsregler eingesetzt werden. Solche Methoden erlauben eine präzisere Reaktion auf komplexe Dynamiken, insbesondere bei wechselnder Last oder höherer Geschwindigkeit.
 
 ---
