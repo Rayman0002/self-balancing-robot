@@ -122,18 +122,18 @@ Im Rahmen des Projekts wurden mehrere komplexe Teilaufgaben erfolgreich umgesetz
 
 ---
 
-## Dead-Locks
+## Dead-Locks  
 
-Während der Entwicklung traten mehrere technische Herausforderungen auf, die besondere Aufmerksamkeit erforderten:
+Während der Entwicklung traten verschiedene kritische Systemzustände auf, die das Verhalten des Roboters massiv beeinflussten. Einige dieser sogenannten „Dead-Locks“ führten dazu, dass das System manuell neu gestartet oder zurückgesetzt werden musste. Die zentralen Ursachen waren:
 
-- **Fehlermeldungen des ODrive Boards**  
-  Die Motorcontroller zeigten Fehlerzustände, die zyklisch abgefragt, analysiert und per Software quittiert werden mussten.
+- **Motorenfehler zyklisch prüfen und quittieren**  
+  Die ODrive-Motorcontroller reagieren empfindlich auf Zustände wie Überstrom, Encoderfehler oder Kommunikationsabbrüche. Wird ein solcher Fehler ausgelöst, verweigert das System jede weitere Motoraktivität – auch wenn der Fehlerzustand zwischenzeitlich behoben ist. Um diese Blockaden aufzulösen, musste im Code eine regelmäßige Abfrage und automatische Fehlerquittierung per UART-Protokoll implementiert werden.
 
-- **Regelzykluszeit & Latenz**  
-  Die Balance hängt direkt von der Reaktionszeit des Systems ab. Eine zu lange oder schwankende Zykluszeit führte zu Instabilität. Daher musste die Software so optimiert werden, dass sie deterministisch und schnell genug reagiert.
+- **Komplementärfilter als Fehlerquelle**  
+  In einem früheren Entwicklungsstadium wurde ein Komplementärfilter zur Sensorfusion eingesetzt, um die Neigungsdaten aus Gyroskop und Beschleunigungssensor zu kombinieren. Leider führte dieser Filter – vermutlich durch falsche Parameter oder ungünstige Gewichtung – zu einer ungenauen oder verzögerten Lagedetektion. Das Resultat war, dass der Roboter nicht balancierte oder sogar bewusst instabil reagierte. Erst nach Entfernung des Filters und direkter Nutzung der DMP-Daten des MPU6050 konnte das System zuverlässig auf Lageänderungen reagieren.
 
-- **Sensorrauschen & Lageregelung**  
-  Rohdaten vom MPU6050 enthalten systembedingtes Rauschen.
+- **Höhere Reglerzykluszeit**  
+  Eine stabile Regelung des Roboters setzt eine konstante und ausreichend schnelle Regelzykluszeit voraus. Es zeigte sich, dass selbst geringe Verzögerungen – etwa durch serielle Kommunikation oder unnötige Berechnungen – zu einem trägen Verhalten führten. Das hatte zur Folge, dass der Roboter auf Neigungsänderungen zu spät oder gar nicht reagierte. Die Lösung bestand darin, den Regler präzise zeitgesteuert (z. B. mit `elapsedMicros`) und ohne blockierende Funktionen zu betreiben.
 
 ---
 
@@ -148,21 +148,24 @@ Trotz sorgfältiger Planung und Umsetzung gab es einen Aspekt, der sich als prob
 
 ## Erweiterungen
 
-Um den Roboter weiterzuentwickeln und praxistauglicher zu machen, sind folgende Erweiterungen geplant oder denkbar:
+Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglichkeiten, um die Funktionalität, Sicherheit und Autonomie des Roboters zu verbessern:
 
-- **Not-Aus-Schalter**  
-  Ein physikalischer Sicherheitsschalter soll integriert werden, um den Roboter im Ernstfall sofort deaktivieren zu können.
+- **Integration eines Not-Aus-Schalters**  
+  Für den sicheren Test- und Echtbetrieb ist ein physischer Not-Aus-Schalter essenziell. Dieser soll die Stromzufuhr zu den Motoren sofort unterbrechen und im Fehlerfall Schäden oder Verletzungen verhindern.
 
-- **micro-ROS Integration**  
-  Anbindung an das Robot Operating System 2 (ROS 2) mithilfe von micro-ROS für vernetzte Robotik-Funktionen, z. B. Zustandstelemetrie oder Fernüberwachung.
+- **Einbindung von micro-ROS**  
+  Durch die Anbindung des Systems an das Robot Operating System 2 mittels micro-ROS kann der Roboter in ein größeres Robotik-Ökosystem integriert werden. Dies ermöglicht z. B. eine standardisierte Zustandsübertragung, Fernwartung, Logging und die Nutzung bestehender ROS2-Tools.
 
-- **Fernsteuerung**  
-  Entwicklung einer Benutzeroberfläche zur manuellen Steuerung über WLAN/Bluetooth, z. B. per Smartphone-App.
+- **Fernsteuerung per Webinterface oder App**  
+  Mittels WLAN oder Bluetooth soll die manuelle Steuerung über ein mobiles Endgerät ermöglicht werden. Denkbar ist eine einfache Benutzeroberfläche zur Richtungssteuerung, Regelungseinstellungen oder Anzeige von Telemetriedaten.
 
-- **Kartografierung und Navigation**  
-  Aufbau eines SLAM-Systems zur Umgebungserfassung (z. B. mit LiDAR oder Kamera) und autonome Navigation durch bekannte Räume.
+- **Autonome Navigation & Kartographierung (SLAM)**  
+  Eine langfristige Erweiterung ist die Ausstattung mit LiDAR oder Kamera zur Umgebungswahrnehmung. Mittels SLAM (Simultaneous Localization and Mapping) könnte der Roboter eigenständig Räume kartieren und navigieren.
 
-- **Zustandsregler statt PID**  
-  Einsatz moderner Regelverfahren (z. B. LQR), die systemdynamische Modelle zur Optimierung verwenden und bei komplexeren Bewegungen stabiler arbeiten.
+- **Erweiterte Regelungsalgorithmen (z. B. LQR)**  
+  Anstelle des klassischen PID-Reglers könnte ein modellbasierter Zustandsregler (z. B. LQR – Linear Quadratic Regulator) eingesetzt werden. Solche Methoden erlauben eine präzisere Reaktion auf komplexe Dynamiken, insbesondere bei wechselnder Last oder höherer Geschwindigkeit.
 
+- **Stromüberwachung & Batteriemanagement**  
+  Ein BMS (Battery Management System) sowie Sensoren zur Spannungs- und Strommessung könnten integriert werden, um Laufzeit zu optimieren und Tiefentladung zu vermeiden.
 
+---
