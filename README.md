@@ -142,7 +142,7 @@ Die zentralen Ursachen waren:
 Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglichkeiten, um die Funktionalität, Sicherheit und Autonomie des Roboters zu verbessern:
 
 - **Integration eines Not-Aus-Schalters**  
-  Für den sicheren Betrieb ist ein physischer Not-Aus-Schalter essenziell. Dieser soll die Stromzufuhr zu den Motoren sofort unterbrechen und im Fehlerfall Schäden oder Verletzungen verhindern. Der Not-Aus-Schalter muss hierzu über die Enable-Pins des S1-Boards angeschlossen werden. Der nachfolgende Link führt zu der ODrive Doku: https://docs.odriverobotics.com/v/latest/manual/error-enable.html
+  Für den sicheren Betrieb ist ein physischer Not-Aus-Schalter essenziell. Dieser soll die Stromzufuhr zu den Motoren sofort unterbrechen und im Fehlerfall Schäden oder Verletzungen verhindern. Der Not-Aus-Schalter muss hierzu über die Enable-Pins des S1-Boards angeschlossen werden. Der nachfolgende Link führt zu der ODrive Doku: https://docs.odriverobotics.com/v/latest/manual/error-enable.html.
 
 - **Einbindung von micro-ROS**  
   Durch die Anbindung des Systems an das Robot Operating System 2 mittels micro-ROS kann der Roboter in ein größeres Robotik-Ökosystem integriert werden. Dies ermöglicht z. B. eine standardisierte Zustandsübertragung, Fernwartung, Logging und die Nutzung bestehender ROS2-Tools.
