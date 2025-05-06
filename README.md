@@ -3,7 +3,7 @@
 ## Inhaltsverzeichnis
 - [Projektbeschreibung](#projektbeschreibung)
 - [Bilder und Videos](#bilder-und-videos)
-- [Bauteile](#bauteile)
+- [Komponenten](#komponenten)
 - [Schaltskizze](#schaltskizze)
 - [Libraries](#libraries)
 - [Durchgeführte Arbeiten](#durchgeführte-arbeiten)
@@ -36,7 +36,7 @@ Ein PID-Regler balanciert den Roboter anhand der Sensordaten. Die Software berü
 ---
 
 ## Bilder und Videos
-Sämtliche Bilder und Videos sind ebenso noch seperat im Ordner "Images" einsehbar und downloadbar.
+Sämtliche Bilder und Videos sind ebenso noch separat im Ordner "Images" einsehbar und downloadbar.
 
 ### Bild des Roboters
 ![Screenshot](https://github.com/Rayman0002/self-balancing-robot/blob/6b631fcdf1065fbe495b8506c45cfa88e2e9ab59/Images/roboter.png)
@@ -46,7 +46,7 @@ Sämtliche Bilder und Videos sind ebenso noch seperat im Ordner "Images" einsehb
 
 ---
 
-## Bauteile  
+## Komponenten  
 
 Für den Bau des selbstbalancierenden Roboters wurden sorgfältig ausgewählte Komponenten eingesetzt, um Stabilität, Rechenleistung und präzise Regelung zu gewährleisten. Hier ein Überblick über die wichtigsten Bauteile:
 
@@ -54,19 +54,19 @@ Für den Bau des selbstbalancierenden Roboters wurden sorgfältig ausgewählte K
   Dient als Hauptcontroller des Roboters. Mit seiner hohen Taktrate (600 MHz) ist er ideal für rechenintensive Aufgaben wie die PID-Regelung und die Verarbeitung der Sensordaten in Echtzeit.
 
 - **MPU6050 (IMU)**  
-  Dieses Modul enthält ein 3-Achsen-Gyroskop und einen 3-Achsen-Beschleunigungssensor. Es liefert kontinuierlich Informationen über die Lage und Bewegung des Roboters und ist damit die zentrale Komponente zur Balancierung.
+  Dieses Modul ist günstig und weit verbreitet, es enthält ein 3-Achsen-Gyroskop und einen 3-Achsen-Beschleunigungssensor. Es liefert kontinuierlich Informationen über die Lage und Bewegung des Roboters und ist damit die zentrale Sensoreinheit.
 
 - **Raspberry Pi 5**  
-  Wird als optionaler Companion-Computer eingesetzt. Er ermöglicht höhere Rechenleistung für zukünftige Erweiterungen wie ROS-Anbindung, Fernsteuerung oder Bildverarbeitung.
+  Er ermöglicht höhere Rechenleistung für zukünftige Erweiterungen wie ROS2-Anbindung, Fernsteuerung oder autonome Navigation.
 
 - **ODrive S1 Board**  
-  Eine hochentwickelte Motorsteuerung für bürstenlose Gleichstrommotoren (BLDC). Sie erlaubt präzise Regelung der Motorbewegung und Kommunikation über UART.
+  Eine hochentwickelte Motorsteuerung für die verwendeten Gleichstrommotoren. Sie erlaubt präzise Regelung der Motorbewegung und Kommunikation über UART.
 
 - **ODrive M8325s Motoren**  
-  Diese BLDC-Motoren liefern das nötige Drehmoment und die Geschwindigkeit, um den Roboter zu bewegen und gleichzeitig das Gleichgewicht zu halten.
+  Diese Motoren liefern das nötige Drehmoment und die Geschwindigkeit, um den Roboter zu bewegen und gleichzeitig das Gleichgewicht zu halten.
 
 - **Blei-Akkumulator LB12-12**  
-  Ein robuster und zuverlässiger 12V-Bleiakku mit hoher Kapazität (12 Ah), der eine Laufzeit von über 2 Stunden ermöglicht und gleichzeitig als Gegengewicht im Chassis dient.
+  Ein robuster und zuverlässiger 12 V Bleiakku mit hoher Kapazität (12 Ah), der eine Laufzeit von über 2 Stunden ermöglicht und gleichzeitig als Gegengewicht im Chassis dient.
 
 ---
 
@@ -78,7 +78,7 @@ Für den Bau des selbstbalancierenden Roboters wurden sorgfältig ausgewählte K
 
 ## Libraries  
 
-Für die Realisierung der Softwarearchitektur kamen verschiedene spezialisierte Arduino- und C++-Bibliotheken zum Einsatz. Sie übernehmen wichtige Aufgaben wie die Kommunikation mit Sensoren, die Motorsteuerung und die Umsetzung der Regelalgorithmen:
+Für die Realisierung der Softwarearchitektur kamen verschiedene spezialisierte Arduino- und C/C++-Bibliotheken zum Einsatz. Sie übernehmen wichtige Aufgaben wie die Kommunikation mit Sensoren, die Motorsteuerung und die Umsetzung der Regelalgorithmen:
 
 - **Wire**  
   Die Standard-I²C-Bibliothek von Arduino, die für die Kommunikation mit dem MPU6050 verwendet wird. Sie ermöglicht den seriellen Datenaustausch zwischen dem Microcontroller und externen I²C-Geräten.
@@ -102,19 +102,20 @@ Für die Realisierung der Softwarearchitektur kamen verschiedene spezialisierte 
 Im Rahmen des Projekts wurden mehrere komplexe Teilaufgaben erfolgreich umgesetzt – sowohl im mechanischen als auch im softwareseitigen Bereich:
 
 - **Mechanische Konstruktion**  
-  Planung, Zuschnitt und Aufbau eines stabilen Chassis aus Aluminiumprofilen. Dabei wurden alle tragenden Teile für Elektronik, Motoren und Batterie passgenau befestigt. Ergänzend kamen individuell konstruierte 3D-Druckteile zum Einsatz (z. B. Halterungen, Radaufnahmen).
+  Der Rahmen des Roboters besteht aus stabilen Aluminiumprofilen, die nicht nur für eine solide Bauweise sorgen, sondern auch viel Spielraum für Anpassungen bieten. Diese modulare Struktur macht es einfach, Bauteile flexibel zu montieren und bei Bedarf umzubauen.
+  Alle mechanischen Teile – von den Halterungen über die Elektronikaufnahmen bis hin zu den Rädern selbst – wurden eigenständig konstruiert und mit dem 3D-Drucker gefertigt. Dadurch konnte jedes Teil passgenau auf die Anforderungen abgestimmt werden.
 
 - **Sensorintegration & Kalibrierung**  
-  Anbindung und Kalibrierung des MPU6050-Sensors über I²C.
+  Anbindung und Kalibrierung des MPU6050-Sensors über I²C mittels des Teensy 4.0.
 
 - **Regelung & Antrieb**  
-  Entwicklung eines PID-Regelalgorithmus, der in Echtzeit auf Lageabweichungen reagiert und die BLDC-Motoren gezielt ansteuert, um den Roboter auszubalancieren.
+  Nutzung eines PID-Reglers, der in Echtzeit auf Winkelabweichungen reagiert und die Motoren gezielt ansteuert, um den Roboter auszubalancieren.
 
 - **Motorsteuerung mit ODrive**  
-  Konfiguration und serielle Ansteuerung des ODrive-Boards zur präzisen Steuerung beider Radmotoren. Inklusive Fehlerbehandlung und Feedback-Abfrage über UART.
+  Konfiguration und serielle Ansteuerung des ODrive-Boards zur präzisen Steuerung beider Radmotoren.
 
 - **Softwareentwicklung**  
-  Modularer, effizienter C++-Code für den Teensy-Microcontroller. Fokus auf gute Echtzeiteigenschaften, klare Trennung von Regelung, Sensorik und Kommunikation.
+  Modularer, effizienter C-Code für den Teensy-Microcontroller. Fokus auf gute Echtzeiteigenschaften, klare Trennung von Regelung, Sensorik und Kommunikation.
 
 ---
 
