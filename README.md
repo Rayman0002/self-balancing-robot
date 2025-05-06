@@ -8,8 +8,7 @@
 - [Libraries](#libraries)
 - [Durchgeführte Arbeiten](#durchgeführte-arbeiten)
 - [Dead-Locks](#dead-locks)
-- [Was war nicht ideal](#was-war-nicht-ideal)
-- [Erweiterungen](#erweiterungen)
+- [Mögliche Erweiterungen](#mögliche-erweiterungen)
 
 ---
 
@@ -132,18 +131,12 @@ Während der Entwicklung traten verschiedene kritische Systemzustände auf, die 
 - **Höhere Reglerzykluszeit**  
   Eine stabile Regelung des Roboters setzt eine konstante und ausreichend schnelle Regelzykluszeit voraus. Es zeigte sich, dass selbst geringe Verzögerungen – etwa durch serielle Kommunikation oder unnötige Berechnungen – zu einem trägen Verhalten führten. Das hatte zur Folge, dass der Roboter auf Neigungsänderungen zu spät oder gar nicht reagierte. Die Lösung bestand darin, den Regler präzise zeitgesteuert und ohne blockierende Funktionen zu betreiben.
 
----
-
-## Was war nicht ideal
-
-Trotz sorgfältiger Planung und Umsetzung gab es einen Aspekt, der sich als problematisch erwies:
-
 - **ODrive-Dokumentation**  
   Die offizielle Dokumentation war teilweise lückenhaft, widersprüchlich oder unvollständig, was den Einstieg deutlich erschwerte. Vieles musste durch Eigenversuche oder Community-Beiträge erarbeitet werden.
 
 ---
 
-## Erweiterungen
+## Mögliche Erweiterungen
 
 Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglichkeiten, um die Funktionalität, Sicherheit und Autonomie des Roboters zu verbessern:
 
