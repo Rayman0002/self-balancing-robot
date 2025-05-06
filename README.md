@@ -6,7 +6,7 @@
 - [Bauteile](#bauteile)
 - [Schaltskizze](#schaltskizze)
 - [Libraries](#libraries)
-- [Durchgeführt](#durchgeführt)
+- [Durchgeführte Arbeiten](#durchgeführte-arbeiten)
 - [Dead-Locks](#dead-locks)
 - [Was war nicht ideal](#was-war-nicht-ideal)
 - [Erweiterungen](#erweiterungen)
@@ -15,17 +15,18 @@
 
 ## Projektbeschreibung  
 
-Das Ziel dieses Projekts war es, einen selbstbalancierenden zweirädrigen Roboter zu entwerfen, zu konstruieren und zu programmieren. Dabei handelt es sich um ein mechatronisches System, das aufrecht bleibt, indem es kontinuierlich seine Position und Lage im Raum erkennt und entsprechend gegensteuert – vergleichbar mit einem inversen Pendel.
+Das Ziel dieses Projekts war es, einen selbstbalancierenden zweirädrigen Roboter mit Differentialantrieb zu entwerfen, zu fertigen und zu programmieren. Dabei handelt es sich um ein mechatronisches System, das aufrecht bleibt, indem es kontinuierlich den Winkel misst und entsprechend gegensteuert – vergleichbar mit einem inversen Pendel.
 
 ### Motivation
 Selbstbalancierende Roboter sind ein beliebtes Thema in der Robotik, da sie komplexe Regelungstechnik mit Sensorik, Echtzeitverarbeitung und Aktorik verbinden. Dieses Projekt diente dem praktischen Verständnis dieser Disziplinen und der Integration moderner Komponenten wie ODrive-Motorsteuerungen, MPU6050-Sensorik und Echtzeitregelung mit einem Teensy 4.0 Microcontroller.
 
 ### Technische Umsetzung
-Der Roboter ist ca. 75 cm hoch, trägt Lasten bis zu 10 kg und erreicht eine Akkulaufzeit von über 2 Stunden. Die Hauptkomponenten sind:
-- Zwei kraftvolle bürstenlose Gleichstrommotoren (BLDC), gesteuert über das ODrive S1 Board.
-- Eine IMU (MPU6050) zur Lagemessung, welche über I2C ausgelesen wird.
+Der Roboter ist ca. 75 cm hoch, trägt Lasten bis zu 10 kg und erreicht eine Akkulaufzeit von über 2 Stunden. 
+Die Hauptkomponenten sind:
+- Zwei Gleichstrommotoren, gesteuert über das ODrive S1 Board.
+- Eine IMU (MPU6050) zur Winkelmessung, welche über I2C ausgelesen wird.
 - Ein Teensy 4.0 als Hauptcontroller für das Regelungssystem (PID).
-- Ein Raspberry Pi 5 als optionaler Companion-Computer für höhere Funktionen wie Netzwerkzugang oder ROS-Integration.
+- Ein Raspberry Pi 5 für höhere Funktionen wie Netzwerkzugang oder ROS2-Integration.
 
 Das Chassis wurde aus Aluminiumprofilen gefertigt, um Robustheit und Modularität zu gewährleisten. Zusätzlich wurden alle spezifischen Halterungen und Aufnahmen im 3D-Druckverfahren gefertigt.
 
@@ -101,7 +102,7 @@ Für die Realisierung der Softwarearchitektur kamen verschiedene spezialisierte 
 
 ---
 
-## Durchgeführt
+## Durchgeführte Arbeiten
 
 Im Rahmen des Projekts wurden mehrere komplexe Teilaufgaben erfolgreich umgesetzt – sowohl im mechanischen als auch im softwareseitigen Bereich:
 
