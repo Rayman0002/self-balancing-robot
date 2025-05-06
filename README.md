@@ -33,11 +33,6 @@ Das Chassis wurde aus Aluminiumprofilen gefertigt, um Robustheit und Modularitä
 ### Steuerung und Regelung
 Ein PID-Regler balanciert den Roboter anhand der Sensordaten. Die Software berücksichtigt die Trägheit, die Position und Geschwindigkeit der Motoren und die Neigung des Roboters.
 
-### Besonderheiten
-- Der Einsatz der ODrive-Plattform stellte hohe Anforderungen an das Timing und die Fehlerbehandlung im Echtzeitbetrieb.
-- Die mechanische Konstruktion musste stabil und gleichzeitig leicht sein.
-- Der Code wurde so gestaltet, dass spätere Erweiterungen wie ROS-Anbindung oder Fernsteuerung einfach möglich sind.
-
 ---
 
 ## Bilder und Videos
