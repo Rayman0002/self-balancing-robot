@@ -120,16 +120,17 @@ Im Rahmen des Projekts wurden mehrere komplexe Teilaufgaben erfolgreich umgesetz
 
 ## Dead-Locks  
 
-Während der Entwicklung traten verschiedene kritische Systemzustände auf, die das Verhalten des Roboters massiv beeinflussten. Einige dieser sogenannten „Dead-Locks“ führten dazu, dass das System manuell neu gestartet oder zurückgesetzt werden musste. Die zentralen Ursachen waren:
+Während der Entwicklung traten verschiedene kritische Systemzustände auf, die das Verhalten des Roboters massiv beeinflussten. Einige dieser „Sackgassen“ führten dazu, dass das System einen instabilen Zustand oder ein unzufriedenstellendes Ergebnis aufwies. 
+Die zentralen Ursachen waren:
 
-- **Motorenfehler zyklisch prüfen und quittieren**  
-  Die ODrive-Motorcontroller reagieren empfindlich auf Zustände wie Überstrom, Encoderfehler oder Kommunikationsabbrüche. Wird ein solcher Fehler ausgelöst, verweigert das System jede weitere Motoraktivität – auch wenn der Fehlerzustand zwischenzeitlich behoben ist. Um diese Blockaden aufzulösen, musste im Code eine regelmäßige Abfrage und automatische Fehlerquittierung per UART-Protokoll implementiert werden.
+- **Maximale Drehzahl wurde in der Motorkonfig zu gering gewählt**  
+  ??
 
 - **Komplementärfilter als Fehlerquelle**  
-  In einem früheren Entwicklungsstadium wurde ein Komplementärfilter zur Sensorfusion eingesetzt, um die Neigungsdaten aus Gyroskop und Beschleunigungssensor zu kombinieren. Leider führte dieser Filter – vermutlich durch falsche Parameter oder ungünstige Gewichtung – zu einer ungenauen oder verzögerten Lagedetektion. Das Resultat war, dass der Roboter nicht balancierte oder sogar bewusst instabil reagierte. Erst nach Entfernung des Filters und direkter Nutzung der DMP-Daten des MPU6050 konnte das System zuverlässig auf Lageänderungen reagieren.
+  In einem früheren Entwicklungsstadium wurde ein Komplementärfilter zur Sensorfusion eingesetzt, um die Neigungsdaten aus Gyroskop und Beschleunigungssensor zu kombinieren. Leider führte dieser Filter – vermutlich durch falsche Parameter oder ungünstige Gewichtung (wobei sehr viele Parameter getestet wurden) – zu einer ungenauen oder verzögerten Lagedetektion. Das Resultat war, dass der Roboter nicht balancierte oder sogar bewusst instabil reagierte. Erst nach Entfernung des Filters und direkter Nutzung der DMP-Daten des MPU6050 konnte das System zuverlässig auf Lageänderungen reagieren.
 
 - **Höhere Reglerzykluszeit**  
-  Eine stabile Regelung des Roboters setzt eine konstante und ausreichend schnelle Regelzykluszeit voraus. Es zeigte sich, dass selbst geringe Verzögerungen – etwa durch serielle Kommunikation oder unnötige Berechnungen – zu einem trägen Verhalten führten. Das hatte zur Folge, dass der Roboter auf Neigungsänderungen zu spät oder gar nicht reagierte. Die Lösung bestand darin, den Regler präzise zeitgesteuert und ohne blockierende Funktionen zu betreiben.
+  Eine stabile Regelung des Roboters setzt eine konstante und ausreichend schnelle Regelzykluszeit voraus. Es zeigte sich, dass selbst geringe Verzögerungen – etwa durch serielle Kommunikation oder unnötige Berechnungen – zu einem trägen Verhalten führten. Das hatte zur Folge, dass der Roboter auf Neigungsänderungen zu spät oder gar nicht reagierte. Die Lösung bestand darin, den Regler präzise zeitgesteuert und ohne blockierende Funktionen zu betreiben. Eine Zykluszeit von 5 ms hat sich als passend herausgestellt.
 
 - **ODrive-Dokumentation**  
   Die offizielle Dokumentation war teilweise lückenhaft, widersprüchlich oder unvollständig, was den Einstieg deutlich erschwerte. Vieles musste durch Eigenversuche oder Community-Beiträge erarbeitet werden.
@@ -141,7 +142,7 @@ Während der Entwicklung traten verschiedene kritische Systemzustände auf, die 
 Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglichkeiten, um die Funktionalität, Sicherheit und Autonomie des Roboters zu verbessern:
 
 - **Integration eines Not-Aus-Schalters**  
-  Für den sicheren Test- und Echtbetrieb ist ein physischer Not-Aus-Schalter essenziell. Dieser soll die Stromzufuhr zu den Motoren sofort unterbrechen und im Fehlerfall Schäden oder Verletzungen verhindern.
+  Für den sicheren Betrieb ist ein physischer Not-Aus-Schalter essenziell. Dieser soll die Stromzufuhr zu den Motoren sofort unterbrechen und im Fehlerfall Schäden oder Verletzungen verhindern. Der Not-Aus-Schalter muss hierzu über die Enable-Pins des S1-Boards angeschlossen werden. Der nachfolgende Link führt zu der ODrive Doku: https://docs.odriverobotics.com/v/latest/manual/error-enable.html
 
 - **Einbindung von micro-ROS**  
   Durch die Anbindung des Systems an das Robot Operating System 2 mittels micro-ROS kann der Roboter in ein größeres Robotik-Ökosystem integriert werden. Dies ermöglicht z. B. eine standardisierte Zustandsübertragung, Fernwartung, Logging und die Nutzung bestehender ROS2-Tools.
