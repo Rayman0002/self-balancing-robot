@@ -24,27 +24,28 @@ Selbstbalancierende Roboter sind ein beliebtes Thema in der Robotik, da sie komp
 - Modularer Aufbau um Erweiterungen leicht zu ermöglichen
 - 10 kg Tragfähigkeit
 - 2 m/s Geschwindigkeit
+- Höhe ca. 75 cm (Tischhöhe)
 - mindestens 2 Stunden Betriebszeit
 - Ansteuerbarkeit über ROS2
+- Ein Budget von 1000 €
 - Veröffentlichung und Doku via Github
 
 Folgende Bauteile wurden hierfür gestellt:
-- Zwei Gleichstrommotoren, gesteuert über je ein ODrive S1 Board.
+- Zwei Gleichstrommotoren, gesteuert über je ein ODrive S1 Board
+- Zwei Bleisäureakkus
 
 ### Technische Umsetzung
-Um die gegebenen Anforderungen zu erfüllen, wurden folgende Bauteile bestellt:
--
-
-Der Roboter ist ca. 75 cm hoch, trägt Lasten bis zu 10 kg und erreicht eine Akkulaufzeit von über 2 Stunden. 
-Die Hauptkomponenten sind:
-- Eine IMU (MPU6050) zur Winkelmessung, welche über I2C ausgelesen wird.
-- Ein Teensy 4.0 als Hauptcontroller für das Regelungssystem (PID).
-- Ein Raspberry Pi 5 für höhere Funktionen wie Netzwerkzugang oder ROS2-Integration.
+Um die gegebenen Anforderungen zu erfüllen wurden [folgende Bauteile](https://github.com/Rayman0002/self-balancing-robot/blob/5ecdaaa52c2463f7f369d1df1b46d891e69060fb/Bestellliste/Bestellliste.xlsx) zugekauft:
+- Eine IMU (MPU6050) zur Winkelmessung, welche über I2C ausgelesen wird
+- Ein Teensy 4.0 als Hauptcontroller für das Regelungssystem (PID)
+- Ein Raspberry Pi 5 für höhere Funktionen wie Netzwerkzugang oder ROS2-Integration
+- DC/DC Wandler
+- Not-Aus-Schalter
 
 Das Chassis wurde aus Aluminiumprofilen gefertigt, um Robustheit und Modularität zu gewährleisten. Zusätzlich wurden alle spezifischen Halterungen und Aufnahmen im 3D-Druckverfahren gefertigt.
 
 ### Steuerung und Regelung
-Ein PID-Regler balanciert den Roboter anhand der Sensordaten. Die Software berücksichtigt die Trägheit, die Position und Geschwindigkeit der Motoren und die Neigung des Roboters.
+Ein PID-Regler balanciert den Roboter anhand der Sensordaten.
 
 ---
 
@@ -94,10 +95,10 @@ Für den Bau des selbstbalancierenden Roboters wurden sorgfältig ausgewählte K
 Für die Realisierung der Softwarearchitektur kamen verschiedene spezialisierte Arduino- und C/C++-Bibliotheken zum Einsatz. Sie übernehmen wichtige Aufgaben wie die Kommunikation mit Sensoren, die Motorsteuerung und die Umsetzung der Regelalgorithmen:
 
 - **Wire**  
-  Die Standard-I²C-Bibliothek von Arduino, die für die Kommunikation mit dem MPU6050 verwendet wird. Sie ermöglicht den seriellen Datenaustausch zwischen dem Microcontroller und externen I²C-Geräten.
+  Die Standard-I2C-Bibliothek von Arduino, die für die Kommunikation mit dem MPU6050 verwendet wird. Sie ermöglicht den seriellen Datenaustausch zwischen dem Microcontroller und externen I2C-Geräten.
 
 - **I2Cdev**  
-  Eine benutzerfreundliche Schnittstellenbibliothek, entwickelt von Jeff Rowberg. Sie erleichtert das Auslesen von I²C-Sensoren wie dem MPU6050, indem sie die I²C-Kommunikation kapselt und abstrahiert.
+  Eine benutzerfreundliche Schnittstellenbibliothek, entwickelt von Jeff Rowberg. Sie erleichtert das Auslesen von I2C-Sensoren wie dem MPU6050, indem sie die I2C-Kommunikation kapselt und abstrahiert.
 
 - **MPU6050_6Axis_MotionApps20**  
   Ebenfalls von Jeff Rowberg, diese Erweiterung nutzt die „DMP“ (Digital Motion Processor)-Funktionalität des MPU6050, um bereits vorverarbeitete Lagedaten (Yaw, Pitch, Roll) bereitzustellen. Dies entlastet den Mikrocontroller und erhöht die Genauigkeit der Bewegungsanalyse.
@@ -119,7 +120,7 @@ Im Rahmen des Projekts wurden mehrere komplexe Teilaufgaben erfolgreich umgesetz
   Alle mechanischen Teile – von den Halterungen über die Elektronikaufnahmen bis hin zu den Rädern selbst – wurden eigenständig konstruiert und mit dem 3D-Drucker gefertigt. Dadurch konnte jedes Teil passgenau auf die Anforderungen abgestimmt werden.
 
 - **Sensorintegration & Kalibrierung**  
-  Anbindung und Kalibrierung des MPU6050-Sensors über I²C mittels des Teensy 4.0.
+  Anbindung und Kalibrierung des MPU6050-Sensors über I2C mittels des Teensy 4.0.
 
 - **Regelung & Antrieb**  
   Nutzung eines PID-Reglers, der in Echtzeit auf Winkelabweichungen reagiert und die Motoren gezielt ansteuert, um den Roboter auszubalancieren.
