@@ -181,5 +181,4 @@ Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglich
 ---
 
 ## Fazit
-
-??
+Das Projekt hat gezeigt, dass sich ein selbstbalancierender Zweirad-Roboter mit Hilfe einer MPU6050-IMU, eines PID-Reglers und ODrive-Motorsteuerungen zuverlässig stabilisieren lässt. Zu Beginn verzögerte ein suboptimaler Ansatz mit einem Komplementärfilter die Stabilisierung erheblich und auch das Auffinden geeigneter PID-Parameter sowie die exakte Bestimmung des Sollwerts erwiesen sich als große Herausforderung. Erst nach intensiver Feinabstimmung der Reglerzykluszeit und Anpassung der Regelparameter konnte der Roboter dauerhaft balancieren. Innerhalb des vorgegebenen Budgets und mit modularem Aufbau wurden nahezu alle Anforderungen – von der Tragfähigkeit über die Fahrgeschwindigkeit bis zur Akkulaufzeit – erfüllt. Künftige Erweiterungen wie micro-ROS-Integration, autonome Navigation und erweiterte Regelungsalgorithmen bieten viel Potenzial, um den Roboter noch vielseitiger und robuster zu machen.
