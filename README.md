@@ -117,11 +117,12 @@ Im Rahmen des Projekts wurden mehrere komplexe Teilaufgaben erfolgreich umgesetz
 - **Mechanische Konstruktion**  
   Der Rahmen des Roboters besteht aus stabilen Aluminiumprofilen, die nicht nur für eine solide Bauweise sorgen, sondern auch viel Spielraum für Anpassungen bieten. Diese modulare Struktur macht es einfach, Bauteile flexibel zu montieren und bei Bedarf umzubauen.
   Alle mechanischen Teile – von den Halterungen über die Elektronikaufnahmen bis hin zu den Rädern selbst – wurden eigenständig konstruiert und mittels 3D-Druck gefertigt. Dadurch konnte jedes Teil passgenau auf die Anforderungen abgestimmt werden.
-  
+  Die Räder sind eine vollständige Eigenkonstruktion. Zum einen aus kostentechnischen Gründen, zum anderen um die Verbindung zwischen Motoren und Rädern möglichst einfach zu gestalten. Hierdurch erspart man sich die Verwendung eines Getriebes.
+Auf das 3d-gedruckte Rad wurde mit einem doppelseitigem Klebeband ein Gummistreifen aufgeklebt, welcher aufgrund des hohen Grips dem Schlupf der Räder entgegenwirkt. Des Weiteren wurde ein dünnes Netz integriert, um zu verhindern, dass auf dem Boden liegende Schrauben oder andere Kleinteile in den Motor gelangen.
   Zudem wurde ein digitaler Zwilling in CAD entworfen, um einen modellbasierten Regelungsentwurf zu ermöglichen.
 
 - **Sensorintegration & Kalibrierung**  
-  Anbindung und Kalibrierung des MPU6050-Sensors über I2C mittels des Teensy 4.0.
+  Anbindung und Kalibrierung des MPU6050-Sensors über I2C mittels des Teensy 4.0. Dabei wurden verschiedene PID Regelparameter ausgetestet, um ein möglichst stabiles Systemverhalten zu realisieren. Die aktuellen Regelparameter stellen einen Kompromiss dar zwischen einer ausreichend aggressiven Regelung, um den Roboter schnell zu stabilisieren und einer zurückhaltenden Auslegung, um überschießendes Verhalten und ein Umkippen zu vermeiden. 
 
 - **Regelung & Antrieb**  
   Nutzung eines PID-Reglers, der in Echtzeit auf Winkelabweichungen reagiert und die Motoren gezielt ansteuert, um den Roboter auszubalancieren.
