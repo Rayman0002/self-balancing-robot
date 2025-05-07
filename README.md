@@ -142,14 +142,15 @@ Auf das 3d-gedruckte Rad wurde mit einem doppelseitigem Klebeband ein Gummistrei
 Während der Entwicklung traten verschiedene kritische Systemzustände auf, die das Verhalten des Roboters massiv beeinflussten. Einige dieser „Sackgassen“ führten dazu, dass das System einen instabilen Zustand oder ein unzufriedenstellendes Ergebnis aufwies. 
 Die zentralen Ursachen waren:
 
-- **Maximale Drehzahl wurde in der Motorkonfig zu gering gewählt**  
-  ??
+- **Maximale Drehzahl**
+  In der Motorkonfig kann die maximale Drehzahl der Motoren begrenzt werden. Dies entspricht einer Stellsignalbegrenzung, was zu einem instabilen Systemverhalten führt. 
 
 - **Komplementärfilter als Fehlerquelle**  
-  In einem früheren Entwicklungsstadium wurde ein Komplementärfilter zur Sensorfusion eingesetzt, um die Neigungsdaten aus Gyroskop und Beschleunigungssensor zu kombinieren. Leider führte dieser Filter – vermutlich durch falsche Parameter oder ungünstige Gewichtung (wobei sehr viele Parameter getestet wurden) – zu einer ungenauen oder verzögerten Lagedetektion. Das Resultat war, dass der Roboter nicht balancierte oder sogar bewusst instabil reagierte. Erst nach Entfernung des Filters und direkter Nutzung der DMP-Daten des MPU6050 konnte das System zuverlässig auf Lageänderungen reagieren.
+  In einem früheren Entwicklungsstadium wurde ein Komplementärfilter zur Sensorfusion eingesetzt, um die Neigungsdaten aus Gyroskop und Beschleunigungssensor zu kombinieren. Leider führte dieser Filter – vermutlich durch falsche Parameter oder ungünstige Gewichtung (wobei sehr viele Parameter getestet wurden) – zu einer ungenauen oder verzögerten Winkelberechnung. Das Resultat war, dass der Roboter nicht balancierte oder sogar bewusst instabil reagierte. Erst nach Entfernung des Filters und direkter Nutzung der DMP-Daten des MPU6050 konnte das System zuverlässig auf Winkeländerungen reagieren.
 
 - **Höhere Reglerzykluszeit**  
-  Eine stabile Regelung des Roboters setzt eine konstante und ausreichend schnelle Regelzykluszeit voraus. Es zeigte sich, dass selbst geringe Verzögerungen – etwa durch serielle Kommunikation oder unnötige Berechnungen – zu einem trägen Verhalten führten. Das hatte zur Folge, dass der Roboter auf Neigungsänderungen zu spät oder gar nicht reagierte. Die Lösung bestand darin, den Regler präzise zeitgesteuert und ohne blockierende Funktionen zu betreiben. Eine Zykluszeit von 5 ms hat sich als passend herausgestellt.
+  Eine stabile Regelung des Roboters setzt eine konstante und ausreichend schnelle Regelzykluszeit voraus. Eine zu große Reglerzykluszeit hatte zur Folge, dass der Sollwert zu selten abgetastet wird und somit zu langsam auf eine Winkeländerung reagiert wird. Bei einer zu geringen Reglerzykluszeit hat das System jedoch auch instabil reagiert. Hierbei konnte die Fehlerursache jedoch nicht ausfindig gemacht werden.
+  Eine Zykluszeit von 5 ms hat sich als passend herausgestellt.
 
 - **ODrive-Dokumentation**  
   Die offizielle Dokumentation war teilweise lückenhaft, widersprüchlich oder unvollständig, was den Einstieg deutlich erschwerte. Vieles musste durch Eigenversuche oder Community-Beiträge erarbeitet werden.
