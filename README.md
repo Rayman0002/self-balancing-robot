@@ -45,12 +45,12 @@ Um die gegebenen Anforderungen zu erfüllen wurden [folgende Bauteile](https://g
 Das Chassis wurde aus Aluminiumprofilen gefertigt, um Robustheit und Modularität zu gewährleisten. Zusätzlich wurden alle spezifischen Halterungen und Aufnahmen im 3D-Druckverfahren gefertigt.
 
 ### Steuerung und Regelung
-Ein PID-Regler balanciert den Roboter anhand der Sensordaten
+Ein geschlossener Regelkreis sorgt dafür, dass der Roboter sein Gleichgewicht selbstständig hält: Die IMU MPU6050 misst fortlaufend den aktuellen Neigungswinkel (Ist-Wert), der mit dem gewünschten Sollwert verglichen wird. Aus der dabei entstehenden Abweichung berechnet ein PID-Regler eine passende Stellgröße. Diese wird für die Drehzahlsteuerung der Motoren verwendet, wodurch die Antriebsmotoren die Neigung aktiv ausgleichen und den Roboter in aufrechter Position halten.
 
 ---
 
 ## Bilder und Videos
-Sämtliche Bilder und Videos sind ebenso noch separat im Ordner [Images](https://github.com/Rayman0002/self-balancing-robot/tree/b4acf35143aba7584a2bec3d086b7ce9a561bfc9/Images) einsehbar und downloadbar.
+Sämtliche Bilder sind ebenso noch separat im Ordner [Images](https://github.com/Rayman0002/self-balancing-robot/tree/b4acf35143aba7584a2bec3d086b7ce9a561bfc9/Images) einsehbar und downloadbar.
 
 ### Bild des Roboters
 ![Screenshot](https://github.com/Rayman0002/self-balancing-robot/blob/6b631fcdf1065fbe495b8506c45cfa88e2e9ab59/Images/roboter.png)
@@ -61,8 +61,7 @@ Sämtliche Bilder und Videos sind ebenso noch separat im Ordner [Images](https:/
 ---
 
 ## Komponenten  
-
-Für den Bau des selbstbalancierenden Roboters wurden sorgfältig ausgewählte Komponenten eingesetzt, um Stabilität, Rechenleistung und präzise Regelung zu gewährleisten. Hier ein Überblick über die wichtigsten Bauteile:
+Hier ein Überblick über die wichtigsten Bauteile des Roboters:
 
 - **Teensy 4.0**  
   Dient als Hauptcontroller des Roboters. Mit seiner hohen Taktrate (600 MHz) ist er ideal für rechenintensive Aufgaben wie die PID-Regelung und die Verarbeitung der Sensordaten in Echtzeit.
