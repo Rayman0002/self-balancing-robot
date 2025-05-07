@@ -7,7 +7,7 @@
 - [Schaltskizze](#schaltskizze)
 - [Libraries](#libraries)
 - [Durchgeführte Arbeiten](#durchgeführte-arbeiten)
-- [Dead-Locks](#dead-locks)
+- [Herausforderungen und Probleme](#herausforderungen-und-probleme)
 - [Mögliche Erweiterungen](#mögliche-erweiterungen)
 - [Fazit](#fazit)
 
@@ -122,10 +122,12 @@ Auf das 3d-gedruckte Rad wurde mit einem doppelseitigem Klebeband ein Gummistrei
   Zudem wurde ein digitaler Zwilling in CAD entworfen, um einen modellbasierten Regelungsentwurf zu ermöglichen.
 
 - **Sensorintegration & Kalibrierung**  
-  Anbindung und Kalibrierung des MPU6050-Sensors über I2C mittels des Teensy 4.0. Dabei wurden verschiedene PID Regelparameter ausgetestet, um ein möglichst stabiles Systemverhalten zu realisieren. Die aktuellen Regelparameter stellen einen Kompromiss dar zwischen einer ausreichend aggressiven Regelung, um den Roboter schnell zu stabilisieren und einer zurückhaltenden Auslegung, um überschießendes Verhalten und ein Umkippen zu vermeiden. 
+  Anbindung und Kalibrierung des MPU6050-Sensors über I2C mittels des Teensy 4.0.
+  Ein Temperaturdrift ist feststellbar, spielt bei den vorhandenen Temperaturänderungen im herkömlichen Betrieb jedoch keine Relevanz. Mittels der Nutzung eines Heißluftföhns kann der Drift nachgewiesen werden.
+  Dadurch, dass die IMU im aufrecht stehenden Zustand des Roboters keinen Winkel von exakt 0° liefert, ist eine Offsetkorrektur notwendig. Dieser Offset kann empirisch ermittelt werden.   
 
 - **Regelung & Antrieb**  
-  Nutzung eines PID-Reglers, der in Echtzeit auf Winkelabweichungen reagiert und die Motoren gezielt ansteuert, um den Roboter auszubalancieren.
+  Nutzung eines PID-Reglers, der in Echtzeit auf Winkelabweichungen reagiert und die Motoren gezielt ansteuert, um den Roboter auszubalancieren. Dabei wurden verschiedene PID Regelparameter ausgetestet, um ein möglichst stabiles Systemverhalten zu realisieren. Die aktuellen Regelparameter sind so gewählt, dass sie einen ausgewogenen Kompromiss bilden. Einerseits sind die Werte groß genug, um schnell auf Abweichungen vom Sollwert zu reagieren. Andererseits sind sie klein genug, um ein aufschwingendes Verhalten zu vermeiden und einen stabilen, sicheren Zustand zu gewährleisten.
 
 - **Motorsteuerung mit ODrive**  
   Konfiguration und serielle Ansteuerung des ODrive-Boards zur präzisen Steuerung beider Radmotoren.
@@ -135,7 +137,7 @@ Auf das 3d-gedruckte Rad wurde mit einem doppelseitigem Klebeband ein Gummistrei
 
 ---
 
-## Dead-Locks  
+## Herausforderungen und Probleme  
 
 Während der Entwicklung traten verschiedene kritische Systemzustände auf, die das Verhalten des Roboters massiv beeinflussten. Einige dieser „Sackgassen“ führten dazu, dass das System einen instabilen Zustand oder ein unzufriedenstellendes Ergebnis aufwies. 
 Die zentralen Ursachen waren:
