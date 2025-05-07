@@ -15,7 +15,7 @@
 
 ## Projektbeschreibung  
 
-Das Ziel dieses Projekts war es, einen selbstbalancierenden zweirädrigen Roboter als Differentialantrieb zu entwerfen, zu fertigen und zu programmieren. Dabei handelt es sich um ein mechatronisches System, das aufrecht bleibt, indem es kontinuierlich den Winkel misst und entsprechend gegensteuert – vergleichbar mit einem inversen Pendel.
+Das Ziel dieses Projekts war es, einen selbstbalancierenden zweirädrigen Roboter als Differentialantrieb zu entwerfen, zu fertigen und zu programmieren. Dabei handelt es sich um ein mechatronisches System, das aufrecht bleibt, indem es kontinuierlich den Neigungswinkel misst und entsprechend gegensteuert – vergleichbar mit einem inversen Pendel.
 
 ### Motivation
 Selbstbalancierende Roboter sind ein beliebtes Thema in der Robotik, da sie komplexe Regelungstechnik mit Sensorik, Echtzeitverarbeitung und Aktorik verbinden. Dieses Projekt diente dem praktischen Verständnis dieser Disziplinen und der Integration moderner Komponenten wie ODrive-Motorsteuerungen, MPU6050-Sensorik und Echtzeitregelung mit einem Teensy 4.0 Microcontroller.
@@ -27,8 +27,8 @@ Selbstbalancierende Roboter sind ein beliebtes Thema in der Robotik, da sie komp
 - Höhe ca. 75 cm (Tischhöhe)
 - mindestens 2 Stunden Betriebszeit
 - Ansteuerbarkeit über ROS2
-- Ein Budget von 1000 €
-- Veröffentlichung und Doku via Github
+- Budget von 1000 €
+- Veröffentlichung und Dokumentation via Github
 
 Folgende Bauteile wurden hierfür gestellt:
 - Zwei Gleichstrommotoren, gesteuert über je ein ODrive S1 Board
