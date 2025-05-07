@@ -90,7 +90,6 @@ Hier ein Überblick über die wichtigsten Bauteile des Roboters:
 ---
 
 ## Libraries  
-
 Für die Realisierung der Softwarearchitektur kamen verschiedene spezialisierte Arduino- und C/C++-Bibliotheken zum Einsatz. Sie übernehmen wichtige Aufgaben wie die Kommunikation mit Sensoren, die Motorsteuerung und die Umsetzung der Regelalgorithmen:
 
 - **Wire**  
@@ -111,7 +110,6 @@ Für die Realisierung der Softwarearchitektur kamen verschiedene spezialisierte 
 ---
 
 ## Durchgeführte Arbeiten
-
 Im Rahmen des Projekts wurden mehrere komplexe Teilaufgaben erfolgreich umgesetzt – sowohl im mechanischen als auch im softwareseitigen Bereich:
 
 - **Mechanische Konstruktion**  
@@ -138,7 +136,6 @@ Auf das 3d-gedruckte Rad wurde mit einem doppelseitigem Klebeband ein Gummistrei
 ---
 
 ## Herausforderungen und Probleme  
-
 Während der Entwicklung traten verschiedene kritische Systemzustände auf, die das Verhalten des Roboters massiv beeinflussten. Einige dieser „Sackgassen“ führten dazu, dass das System einen instabilen Zustand oder ein unzufriedenstellendes Ergebnis aufwies. 
 Die zentralen Ursachen waren:
 
@@ -149,7 +146,10 @@ Die zentralen Ursachen waren:
   In einem früheren Entwicklungsstadium wurde ein Komplementärfilter zur Sensorfusion eingesetzt, um die Neigungsdaten aus Gyroskop und Beschleunigungssensor zu kombinieren. Leider führte dieser Filter – vermutlich durch falsche Parameter oder ungünstige Gewichtung (wobei sehr viele Parameter getestet wurden) – zu einer ungenauen oder verzögerten Winkelberechnung. Das Resultat war, dass der Roboter nicht balancierte oder sogar bewusst instabil reagierte. Erst nach Entfernung des Filters und direkter Nutzung der DMP-Daten des MPU6050 konnte das System zuverlässig auf Winkeländerungen reagieren.
 
 - **Höhere Reglerzykluszeit**  
-  Eine stabile Regelung des Roboters setzt eine konstante und ausreichend schnelle Regelzykluszeit voraus. Eine zu große Reglerzykluszeit hatte zur Folge, dass der Sollwert zu selten abgetastet wird und somit zu langsam auf eine Winkeländerung reagiert wird. Bei einer zu geringen Reglerzykluszeit hat das System jedoch auch instabil reagiert. Hierbei konnte die Fehlerursache jedoch nicht ausfindig gemacht werden.
+  Eine stabile Regelung des Roboters setzt eine konstante und ausreichend schnelle Regelzykluszeit voraus.
+  Eine zu große Reglerzykluszeit hatte zur Folge, dass der Sollwert zu selten abgetastet wird und somit zu langsam auf eine Winkeländerung reagiert wird.
+  In einem früheren Softwarestand wurde zyklisch der Zustand der Motoren überprüft und ein gegebenenfalls vorhandener Fehler quittiert. Dies führte dazu, dass die Reglerzykluszeit erhöht wurde.
+  Bei einer zu geringen Reglerzykluszeit hat das System auch instabil reagiert. Hierbei konnte die Fehlerursache jedoch nicht ausfindig gemacht werden.
   Eine Zykluszeit von 5 ms hat sich als passend herausgestellt.
 
 - **ODrive-Dokumentation**  
@@ -158,7 +158,6 @@ Die zentralen Ursachen waren:
 ---
 
 ## Mögliche Erweiterungen
-
 Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglichkeiten, um die Funktionalität, Sicherheit und Autonomie des Roboters zu verbessern:
 
 - **Integration eines Not-Aus-Schalters**  
@@ -175,6 +174,9 @@ Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglich
 
 - **Erweiterte Regelungsalgorithmen**  
   Anstelle des klassischen PID-Reglers könnte ein modellbasierter Zustandsregler eingesetzt werden. Solche Methoden erlauben eine präzisere Reaktion auf komplexe Dynamiken, insbesondere bei wechselnder Last oder höherer Geschwindigkeit.
+
+- **Batteriespannungsüberwachung**  
+  Für den sicheren Betrieb des Roboters ist es sinnvoll die Spannungen der Batterien zu überwachen, um so eine Tiefentladung der Batterien zu verhindern. Der sichere Betrieb ist somit gewährleistet, da die Motoren in keinen Fehlerzustand wegen Unterspannung gelangen.
 
 ---
 
