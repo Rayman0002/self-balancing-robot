@@ -9,6 +9,7 @@
 - [Durchgeführte Arbeiten](#durchgeführte-arbeiten)
 - [Dead-Locks](#dead-locks)
 - [Mögliche Erweiterungen](#mögliche-erweiterungen)
+- [Fazit](#fazit)
 
 ---
 
@@ -157,3 +158,7 @@ Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglich
   Anstelle des klassischen PID-Reglers könnte ein modellbasierter Zustandsregler eingesetzt werden. Solche Methoden erlauben eine präzisere Reaktion auf komplexe Dynamiken, insbesondere bei wechselnder Last oder höherer Geschwindigkeit.
 
 ---
+
+## Fazit
+
+??
