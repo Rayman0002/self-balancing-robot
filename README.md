@@ -164,16 +164,16 @@ Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglich
   Für den sicheren Betrieb ist ein physischer Not-Aus-Schalter essenziell. Dieser soll die Stromzufuhr zu den Motoren sofort unterbrechen und im Fehlerfall Schäden oder Verletzungen verhindern. Der Not-Aus-Schalter muss hierzu über die Enable-Pins des S1-Boards angeschlossen werden. Das notwendige Vorgehen ist in der [ODrive Doku](https://docs.odriverobotics.com/v/latest/manual/error-enable.html) beschrieben.
 
 - **Einbindung von micro-ROS**  
-  Durch die Anbindung des Systems an das Robot Operating System 2 mittels micro-ROS kann der Roboter in ein größeres Robotik-Ökosystem integriert werden. Dies ermöglicht z. B. eine standardisierte Zustandsübertragung, Fernwartung, Logging und die Nutzung bestehender ROS2-Tools.
+  Durch die Anbindung des Systems an ROS2 mittels micro-ROS kann der Roboter in ein größeres Robotik-Ökosystem integriert werden. Hierfür muss der vorhandene Code des Teensy's in einen micro-ROS Rahmen integriert werden. Dies ermöglicht z. B. eine dynamische Regelparameteranpassung, Logging der Messwerte und Fernsteuerung des Roboters. 
 
-- **Fernsteuerung per Webinterface oder App**  
-  Mittels WLAN oder Bluetooth soll die manuelle Steuerung über ein mobiles Endgerät ermöglicht werden. Denkbar ist eine einfache Benutzeroberfläche zur Richtungssteuerung, Regelungseinstellungen oder Anzeige von Telemetriedaten.
-
+- **Fernsteuerung**  
+  Die Fernsteuerung erfolgt über ROS2, wobei ein Controller per Bluetooth oder USB mit dem Laptop verbunden ist. Dieser kommuniziert wiederum über WLAN mit dem auf dem Roboter verbauten Raspberry Pi.
+  
 - **Autonome Navigation & Kartographierung (SLAM)**  
   Eine langfristige Erweiterung ist die Ausstattung mit LiDAR oder Kamera zur Umgebungswahrnehmung. Mittels SLAM (Simultaneous Localization and Mapping) könnte der Roboter eigenständig Räume kartieren und navigieren.
 
 - **Erweiterte Regelungsalgorithmen**  
-  Anstelle des klassischen PID-Reglers könnte ein modellbasierter Zustandsregler eingesetzt werden. Solche Methoden erlauben eine präzisere Reaktion auf komplexe Dynamiken, insbesondere bei wechselnder Last oder höherer Geschwindigkeit.
+  Anstelle des klassischen PID-Reglers könnte ein modellbasierter Zustandsregler eingesetzt werden. Solche Methoden erlauben eine präzisere Reaktion auf komplexe Dynamiken, insbesondere bei wechselnder Last oder höherer Geschwindigkeit. Denkbare Zustände wären die Geschwindigkeit, Position des Roboters ausgelesen über die Motoren sowie der Winkel und die Winkeländerungsrate ausgelesen über die IMU. 
 
 - **Batteriespannungsüberwachung**  
   Für den sicheren Betrieb des Roboters ist es sinnvoll die Spannungen der Batterien zu überwachen, um so eine Tiefentladung der Batterien zu verhindern. Der sichere Betrieb ist somit gewährleistet, da die Motoren in keinen Fehlerzustand wegen Unterspannung gelangen.
