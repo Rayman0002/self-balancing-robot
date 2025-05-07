@@ -116,7 +116,9 @@ Im Rahmen des Projekts wurden mehrere komplexe Teilaufgaben erfolgreich umgesetz
 
 - **Mechanische Konstruktion**  
   Der Rahmen des Roboters besteht aus stabilen Aluminiumprofilen, die nicht nur für eine solide Bauweise sorgen, sondern auch viel Spielraum für Anpassungen bieten. Diese modulare Struktur macht es einfach, Bauteile flexibel zu montieren und bei Bedarf umzubauen.
-  Alle mechanischen Teile – von den Halterungen über die Elektronikaufnahmen bis hin zu den Rädern selbst – wurden eigenständig konstruiert und mit dem 3D-Drucker gefertigt. Dadurch konnte jedes Teil passgenau auf die Anforderungen abgestimmt werden.
+  Alle mechanischen Teile – von den Halterungen über die Elektronikaufnahmen bis hin zu den Rädern selbst – wurden eigenständig konstruiert und mittels 3D-Druck gefertigt. Dadurch konnte jedes Teil passgenau auf die Anforderungen abgestimmt werden.
+  
+  Zudem wurde ein digitaler Zwilling in CAD entworfen, um einen modellbasierten Regelungsentwurf zu ermöglichen.
 
 - **Sensorintegration & Kalibrierung**  
   Anbindung und Kalibrierung des MPU6050-Sensors über I2C mittels des Teensy 4.0.
@@ -128,7 +130,7 @@ Im Rahmen des Projekts wurden mehrere komplexe Teilaufgaben erfolgreich umgesetz
   Konfiguration und serielle Ansteuerung des ODrive-Boards zur präzisen Steuerung beider Radmotoren.
 
 - **Softwareentwicklung**  
-  Modularer, effizienter C-Code für den Teensy-Microcontroller. Fokus auf gute Echtzeiteigenschaften, klare Trennung von Regelung, Sensorik und Kommunikation.
+  Modularer, effizienter [C-Code](https://github.com/Rayman0002/self-balancing-robot/tree/3e0792b9f9f8d5dc3f43347506e3ac82a5c26bf6/Code) für den Teensy-Microcontroller.
 
 ---
 
