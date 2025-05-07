@@ -45,12 +45,12 @@ Um die gegebenen Anforderungen zu erfüllen wurden [folgende Bauteile](https://g
 Das Chassis wurde aus Aluminiumprofilen gefertigt, um Robustheit und Modularität zu gewährleisten. Zusätzlich wurden alle spezifischen Halterungen und Aufnahmen im 3D-Druckverfahren gefertigt.
 
 ### Steuerung und Regelung
-Ein PID-Regler balanciert den Roboter anhand der Sensordaten.
+Ein PID-Regler balanciert den Roboter anhand der Sensordaten
 
 ---
 
 ## Bilder und Videos
-Sämtliche Bilder und Videos sind ebenso noch separat im Ordner "Images" einsehbar und downloadbar.
+Sämtliche Bilder und Videos sind ebenso noch separat im Ordner [Images](https://github.com/Rayman0002/self-balancing-robot/tree/b4acf35143aba7584a2bec3d086b7ce9a561bfc9/Images) einsehbar und downloadbar.
 
 ### Bild des Roboters
 ![Screenshot](https://github.com/Rayman0002/self-balancing-robot/blob/6b631fcdf1065fbe495b8506c45cfa88e2e9ab59/Images/roboter.png)
