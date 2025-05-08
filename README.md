@@ -139,7 +139,7 @@ Auf das 3d-gedruckte Rad wurde mit einem doppelseitigem Klebeband ein Gummistrei
 Während der Entwicklung traten verschiedene kritische Systemzustände auf, die das Verhalten des Roboters massiv beeinflussten. Einige dieser „Sackgassen“ führten dazu, dass das System einen instabilen Zustand oder ein unzufriedenstellendes Ergebnis aufwies. 
 Die zentralen Ursachen waren:
 
-- **Maximale Drehzahl**
+- **Maximale Drehzahl**  
   In der Motorkonfig kann die maximale Drehzahl der Motoren begrenzt werden. Dies entspricht einer Stellsignalbegrenzung, was zu einem instabilen Systemverhalten führt. 
 
 - **Komplementärfilter als Fehlerquelle**  
