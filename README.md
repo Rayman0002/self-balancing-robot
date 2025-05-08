@@ -35,7 +35,7 @@ Folgende Bauteile wurden hierfür gestellt:
 - Zwei Bleisäureakkus
 
 ### Technische Umsetzung
-Um die gegebenen Anforderungen zu erfüllen wurden [folgende Bauteile](https://github.com/Rayman0002/self-balancing-robot/blob/5ecdaaa52c2463f7f369d1df1b46d891e69060fb/Bestellliste/Bestellliste.xlsx) zugekauft:
+Um die gegebenen Anforderungen zu erfüllen wurden [folgende Bauteile](https://github.com/Rayman0002/self-balancing-robot/tree/01634058a8744456b4b8e9eb85bf182ba5505895/Bestellliste) zugekauft:
 - Eine IMU (MPU6050) zur Winkelmessung, welche über I2C ausgelesen wird
 - Ein Teensy 4.0 als Hauptcontroller für das Regelungssystem (PID)
 - Ein Raspberry Pi 5 für höhere Funktionen wie Netzwerkzugang oder ROS2-Integration
