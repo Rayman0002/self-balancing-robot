@@ -45,7 +45,7 @@ Um die gegebenen Anforderungen zu erfüllen wurden [folgende Bauteile](https://g
 Das Chassis wurde aus Aluminiumprofilen gefertigt, um Robustheit und Modularität zu gewährleisten. Zusätzlich wurden alle spezifischen Halterungen und Aufnahmen im 3D-Druckverfahren gefertigt.
 
 ### Steuerung und Regelung
-Ein geschlossener Regelkreis sorgt dafür, dass der Roboter sein Gleichgewicht selbstständig hält: Die IMU MPU6050 misst fortlaufend den aktuellen Neigungswinkel (Ist-Wert), der mit dem gewünschten Sollwert verglichen wird. Aus der dabei entstehenden Abweichung berechnet ein PID-Regler eine passende Stellgröße. Diese wird für die Drehzahlsteuerung der Motoren verwendet, wodurch die Antriebsmotoren die Neigung aktiv ausgleichen und den Roboter in aufrechter Position halten.
+Ein geschlossener Regelkreis sorgt dafür, dass der Roboter sein Gleichgewicht selbstständig hält: Die IMU MPU6050 misst fortlaufend den aktuellen Neigungswinkel (Ist-Wert) und speichert die Messwerte in einem FIFO-Buffer, aus dem anschließend ein gleitender Mittelwert gebildet wird. Dadurch werden Störungen und Rauschen in den Sensordaten reduziert. Der so geglättete Winkelwert wird mit dem gewünschten Sollwert verglichen. Aus der dabei entstehenden Abweichung berechnet ein PID-Regler eine passende Stellgröße. Diese wird für die Drehzahlsteuerung der Motoren verwendet, wodurch die Antriebsmotoren die Neigung aktiv ausgleichen und den Roboter in aufrechter Position halten.
 
 ---
 
