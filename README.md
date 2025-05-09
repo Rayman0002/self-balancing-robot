@@ -116,12 +116,12 @@ Im Rahmen des Projekts wurden mehrere komplexe Teilaufgaben erfolgreich umgesetz
   Der Rahmen des Roboters besteht aus stabilen Aluminiumprofilen, die nicht nur für eine solide Bauweise sorgen, sondern auch viel Spielraum für Anpassungen bieten. Diese modulare Struktur macht es einfach, Bauteile flexibel zu montieren und bei Bedarf umzubauen.
   Alle mechanischen Teile – von den Halterungen über die Elektronikaufnahmen bis hin zu den Rädern selbst – wurden eigenständig konstruiert und mittels 3D-Druck gefertigt. Dadurch konnte jedes Teil passgenau auf die Anforderungen abgestimmt werden.
   Die Räder sind eine vollständige Eigenkonstruktion. Zum einen aus kostentechnischen Gründen, zum anderen um die Verbindung zwischen Motoren und Rädern möglichst einfach zu gestalten. Hierdurch erspart man sich die Verwendung eines Getriebes.
-Auf das 3d-gedruckte Rad wurde mit einem doppelseitigem Klebeband ein Gummistreifen aufgeklebt, welcher aufgrund des hohen Grips dem Schlupf der Räder entgegenwirkt. Des Weiteren wurde ein dünnes Netz integriert, um zu verhindern, dass auf dem Boden liegende Schrauben oder andere Kleinteile in den Motor gelangen.
+Auf das 3D-gedruckte Rad wurde mit einem doppelseitigem Klebeband ein Gummistreifen aufgeklebt, welcher aufgrund des hohen Grips dem Schlupf der Räder entgegenwirkt. Des Weiteren wurde ein dünnes Netz integriert, um zu verhindern, dass auf dem Boden liegende Schrauben oder andere Kleinteile in den Motor gelangen.
   Zudem wurde ein digitaler Zwilling in CAD entworfen, um einen modellbasierten Regelungsentwurf zu ermöglichen.
 
 - **Sensorintegration & Kalibrierung**  
   Anbindung und Kalibrierung des MPU6050-Sensors über I2C mittels des Teensy 4.0.
-  Ein Temperaturdrift ist feststellbar, spielt bei den vorhandenen Temperaturänderungen im herkömlichen Betrieb jedoch keine Relevanz. Mittels der Nutzung eines Heißluftföhns kann der Drift nachgewiesen werden.
+  Ein Temperaturdrift ist feststellbar, spielt bei den vorhandenen Temperaturänderungen im herkömlichen Betrieb jedoch keine Relevanz. Mit der Nutzung eines Heißluftföhns kann der Drift nachgewiesen werden.
   Dadurch, dass die IMU im aufrecht stehenden Zustand des Roboters keinen Winkel von exakt 0° liefert, ist eine Offsetkorrektur notwendig. Dieser Offset kann empirisch ermittelt werden.   
 
 - **Regelung & Antrieb**  
@@ -140,14 +140,14 @@ Während der Entwicklung traten verschiedene kritische Systemzustände auf, die 
 Die zentralen Ursachen waren:
 
 - **Maximale Drehzahl**  
-  In der Motorkonfig kann die maximale Drehzahl der Motoren begrenzt werden. Dies entspricht einer Stellsignalbegrenzung, was zu einem instabilen Systemverhalten führt. 
+  In der Motorkonfiguration kann die maximale Drehzahl der Motoren begrenzt werden. Dies entspricht einer Stellsignalbegrenzung, was zu einem instabilen Systemverhalten führt. 
 
 - **Komplementärfilter als Fehlerquelle**  
   In einem früheren Entwicklungsstadium wurde ein Komplementärfilter zur Sensorfusion eingesetzt, um die Neigungsdaten aus Gyroskop und Beschleunigungssensor zu kombinieren. Leider führte dieser Filter – vermutlich durch falsche Parameter oder ungünstige Gewichtung (wobei sehr viele Parameter getestet wurden) – zu einer ungenauen oder verzögerten Winkelberechnung. Das Resultat war, dass der Roboter nicht balancierte oder sogar bewusst instabil reagierte. Erst nach Entfernung des Filters und direkter Nutzung der DMP-Daten des MPU6050 konnte das System zuverlässig auf Winkeländerungen reagieren.
 
 - **Höhere Reglerzykluszeit**  
   Eine stabile Regelung des Roboters setzt eine konstante und ausreichend schnelle Regelzykluszeit voraus.
-  Eine zu große Reglerzykluszeit hatte zur Folge, dass der Sollwert zu selten abgetastet wird und somit zu langsam auf eine Winkeländerung reagiert wird.
+  Eine zu große Reglerzykluszeit hatte zur Folge, dass der Sollwert zu selten abgetastet wird und somit zu langsam auf eine Winkeländerung reagiert werden kann.
   In einem früheren Softwarestand wurde zyklisch der Zustand der Motoren überprüft und ein gegebenenfalls vorhandener Fehler quittiert. Dies führte dazu, dass die Reglerzykluszeit erhöht wurde.
   Bei einer zu geringen Reglerzykluszeit hat das System auch instabil reagiert. Hierbei konnte die Fehlerursache jedoch nicht ausfindig gemacht werden.
   Eine Zykluszeit von 5 ms hat sich als passend herausgestellt.
@@ -161,7 +161,7 @@ Die zentralen Ursachen waren:
 Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglichkeiten, um die Funktionalität, Sicherheit und Autonomie des Roboters zu verbessern:
 
 - **Integration eines Not-Aus-Schalters**  
-  Für den sicheren Betrieb ist ein physischer Not-Aus-Schalter essenziell. Dieser soll die Stromzufuhr zu den Motoren sofort unterbrechen und im Fehlerfall Schäden oder Verletzungen verhindern. Der Not-Aus-Schalter muss hierzu über die Enable-Pins des S1-Boards angeschlossen werden. Das notwendige Vorgehen ist in der [ODrive Doku](https://docs.odriverobotics.com/v/latest/manual/error-enable.html) beschrieben.
+  Für den sicheren Betrieb ist ein physischer Not-Aus-Schalter essenziell. Dieser soll die Stromzufuhr zu den Motoren sofort unterbrechen und im Fehlerfall Schäden oder Verletzungen verhindern. Der Not-Aus-Schalter muss hierzu über die Enable-Pins des S1-Boards angeschlossen werden. Das notwendige Vorgehen ist in der [ODrive Dokumentation](https://docs.odriverobotics.com/v/latest/manual/error-enable.html) beschrieben.
 
 - **Einbindung von micro-ROS**  
   Durch die Anbindung des Systems an ROS2 mittels micro-ROS kann der Roboter in ein größeres Robotik-Ökosystem integriert werden. Hierfür muss der vorhandene Code des Teensy's in einen micro-ROS Rahmen integriert werden. Dies ermöglicht z. B. eine dynamische Regelparameteranpassung, Logging der Messwerte und Fernsteuerung des Roboters. 
