@@ -31,14 +31,14 @@ Selbstbalancierende Roboter sind ein beliebtes Thema in der Robotik, da sie komp
 - Veröffentlichung und Dokumentation via Github
 
 Folgende Bauteile wurden hierfür gestellt:
-- Zwei Gleichstrommotoren, gesteuert über je ein ODrive S1 Board
-- Zwei Bleisäureakkus
+- Zwei Servomotoren, gesteuert über je ein ODrive S1 Board
+- Zwei Bleisäureakkumulatoren
 
 ### Technische Umsetzung
 Um die gegebenen Anforderungen zu erfüllen wurden [folgende Bauteile](https://github.com/Rayman0002/self-balancing-robot/tree/01634058a8744456b4b8e9eb85bf182ba5505895/Bestellliste) zugekauft:
-- Eine IMU (MPU6050) zur Winkelmessung, welche über I2C ausgelesen wird
-- Ein Teensy 4.0 als Hauptcontroller für das Regelungssystem (PID)
-- Ein Raspberry Pi 5 für höhere Funktionen wie Netzwerkzugang oder ROS2-Integration
+- Eine MPU6050 (IMU) zur Winkelmessung, welche über I2C ausgelesen wird
+- Ein Teensy 4.0 (TCU) als Hauptcontroller für das Regelungssystem (PID) der Traktion
+- Ein Raspberry Pi 5 (VCU) für höhere Funktionen wie Netzwerkzugang oder ROS2-Integration
 - DC/DC Wandler
 - Not-Aus-Schalter
 
@@ -63,13 +63,13 @@ Sämtliche Bilder sind ebenso noch separat im Ordner [Images](https://github.com
 ## Komponenten  
 Hier ein Überblick über die wichtigsten Bauteile des Roboters:
 
-- **Teensy 4.0**  
+- **Teensy 4.0 (TCU)**  
   Dient als Hauptcontroller des Roboters. Mit seiner hohen Taktrate (600 MHz) ist er ideal für rechenintensive Aufgaben wie die PID-Regelung und die Verarbeitung der Sensordaten in Echtzeit.
 
 - **MPU6050 (IMU)**  
   Dieses Modul ist günstig und weit verbreitet, es enthält ein 3-Achsen-Gyroskop und einen 3-Achsen-Beschleunigungssensor. Es liefert kontinuierlich Informationen über die Lage und Bewegung des Roboters und ist damit die zentrale Sensoreinheit.
 
-- **Raspberry Pi 5**  
+- **Raspberry Pi 5 (VCU)**  
   Er ermöglicht höhere Rechenleistung für zukünftige Erweiterungen wie ROS2-Anbindung, Fernsteuerung oder autonome Navigation.
 
 - **ODrive S1 Board**  
@@ -143,7 +143,7 @@ Die zentralen Ursachen waren:
   In der Motorkonfiguration kann die maximale Drehzahl der Motoren begrenzt werden. Dies entspricht einer Stellsignalbegrenzung, was zu einem instabilen Systemverhalten führt. 
 
 - **Komplementärfilter als Fehlerquelle**  
-  In einem früheren Entwicklungsstadium wurde ein Komplementärfilter zur Sensorfusion eingesetzt, um die Neigungsdaten aus Gyroskop und Beschleunigungssensor zu kombinieren. Leider führte dieser Filter – vermutlich durch falsche Parameter oder ungünstige Gewichtung (wobei sehr viele Parameter getestet wurden) – zu einer ungenauen oder verzögerten Winkelberechnung. Das Resultat war, dass der Roboter nicht balancierte oder sogar bewusst instabil reagierte. Erst nach Entfernung des Filters und direkter Nutzung der DMP-Daten des MPU6050 konnte das System zuverlässig auf Winkeländerungen reagieren.
+  In einem früheren Entwicklungsstadium wurde ein Komplementärfilter zur Sensorfusion eingesetzt, um die Neigungsdaten aus Gyroskop und Beschleunigungssensor zu kombinieren. Leider führte dieser Filter – vermutlich durch falsche Parameter oder ungünstige Gewichtung (wobei sehr viele Parameter getestet wurden) – zu einer ungenauen oder verzögerten Winkelberechnung. Das Resultat war, dass der Roboter nicht balancierte oder sogar instabil reagierte. Erst nach Entfernung des Filters und direkter Nutzung der DMP-Daten des MPU6050 konnte das System zuverlässig auf Winkeländerungen reagieren.
 
 - **Höhere Reglerzykluszeit**  
   Eine stabile Regelung des Roboters setzt eine konstante und ausreichend schnelle Regelzykluszeit voraus.
