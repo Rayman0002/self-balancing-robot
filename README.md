@@ -57,7 +57,7 @@ Sämtliche Bilder sind ebenso noch separat im Ordner [Images](https://github.com
 
 ### Video des Balanciervorgangs
 <a href="https://youtube.com/shorts/DrgmVfjAZ9I?feature=share">
-<img src="https://github.com/Rayman0002/self-balancing-robot/blob/15ef76217329cf2e615c9acc420301605097d795/Images/robot4.jpg" width="200" alt="Navigation in Simulation"></a>
+<img src="https://youtube.com/shorts/ZV-jEct9rSY" width="200">
 
 ---
 
