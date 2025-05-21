@@ -53,7 +53,7 @@ Ein geschlossener Regelkreis sorgt dafür, dass der Roboter sein Gleichgewicht s
 Sämtliche Bilder sind ebenso noch separat im Ordner [Images](https://github.com/Rayman0002/self-balancing-robot/tree/b4acf35143aba7584a2bec3d086b7ce9a561bfc9/Images) einsehbar und downloadbar.
 
 ### Bild des Roboters
-<img src="https://github.com/Rayman0002/self-balancing-robot/blob/8eceb1a8b000328f6cab4dd2817c1807fa5aab82/Images/robot2.jpg" width="100">
+<img src="https://github.com/Rayman0002/self-balancing-robot/blob/8eceb1a8b000328f6cab4dd2817c1807fa5aab82/Images/robot2.jpg" width="1000">
 
 ### Video des Balanciervorgangs
 [![Video ansehen]([https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID](https://youtube.com/shorts/DrgmVfjAZ9I?feature=share))
