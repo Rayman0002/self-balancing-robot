@@ -187,8 +187,7 @@ Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglich
 - **Mechanische Verkleidung**  
   Um die empfindlichen elektronischen Komponenten vor äußeren Einflüssen wie Staub, Feuchtigkeit oder mechanischen Stößen zu schützen, soll eine robuste Außenverkleidung entworfen werden. Sie soll außerdem unabsichtliches Anfassen der Komponenten verhindern. Diese sollte wartungsfreundlich umgesetzt sein. Gleichzeitig dient sie der strukturellen Verstärkung des Chassis. Darüber hinaus ist ein Bereich für einen Materialtransport vorzusehen.
 
-
-- **passive Sicherheitsmaßnahmen**
+- **passive Sicherheitsmaßnahmen**  
   Zur Absicherung bei einem Ausfall der Regelung oder anderer kritischer Fehlerzustände wird ein mechanischer Umfallschutz implementiert. Dieser wirkt als passive Auffangsicherung, die im Ernstfall ein vollständiges Umkippen des Roboters verhindert. Hierdurch sollen außerdem Beschädigungen durch das Umfallen verhindert werden. Denkbare Lösungen sind seitlich oder hinten montierte Stützrollen oder eine dämpfende Fangstruktur (z. B. mit Federn oder Gummipuffern), die bei zu großer Neigung des Roboters den Kontakt zum Boden aufnehmen und ein kontrolliertes Abfangen ermöglichen. Wichtig ist dabei, dass die Konstruktion die normale Bewegung des Roboters nicht einschränkt und möglichst leicht und robust gestaltet ist.
 
 ---
