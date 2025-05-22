@@ -1,4 +1,4 @@
-# 🤖 Self-Balancing Robot
+# 🤖 Self-Balancing Robot - StabilOHM
 
 ## Inhaltsverzeichnis
 - [Projektbeschreibung](#projektbeschreibung)
@@ -159,25 +159,36 @@ Die zentralen Ursachen waren:
 ---
 
 ## Mögliche Erweiterungen
-Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglichkeiten, um die Funktionalität, Sicherheit und Autonomie des Roboters zu verbessern:
+Im weiteren Projektverlauf bieten sich zahlreiche sinnvolle Erweiterungsmöglichkeiten, um die Funktionalität, Sicherheit und Autonomie des Roboters zu verbessern. Im Folgenden werden zwei Projektarbeiten formuliert mit entsprechenden Aufgabenpaketen:
 
-- **Integration eines Not-Aus-Schalters**  
-  Für den sicheren Betrieb ist ein physischer Not-Aus-Schalter essenziell. Dieser soll die Stromzufuhr zu den Motoren sofort unterbrechen und im Fehlerfall Schäden oder Verletzungen verhindern. Der Not-Aus-Schalter muss hierzu über die Enable-Pins des S1-Boards angeschlossen werden. Das notwendige Vorgehen ist in der [ODrive Dokumentation](https://docs.odriverobotics.com/v/latest/manual/error-enable.html) beschrieben.
+
+### Projektarbeit 1 – Softwareseitige Erweiterung des Robotersystems durch Integration von micro-ROS und fortgeschrittener Regelung
 
 - **Einbindung von micro-ROS**  
   Durch die Anbindung des Systems an ROS2 mittels micro-ROS kann der Roboter in ein größeres Robotik-Ökosystem integriert werden. Hierfür muss der vorhandene Code des Teensy's in einen micro-ROS Rahmen integriert werden. Dies ermöglicht z. B. eine dynamische Regelparameteranpassung, Logging der Messwerte und Fernsteuerung des Roboters. 
 
 - **Fernsteuerung**  
   Die Fernsteuerung erfolgt über ROS2, wobei ein Controller per Bluetooth oder USB mit dem Laptop verbunden ist. Dieser kommuniziert wiederum über WLAN mit dem auf dem Roboter verbauten Raspberry Pi.
-  
+
+- **Erweiterte Regelungsalgorithmen**  
+  Anstelle des klassischen PID-Reglers könnte ein modellbasierter Zustandsregler eingesetzt werden. Solche Methoden erlauben eine präzisere Reaktion auf komplexe Dynamiken, insbesondere bei wechselnder Last oder höherer Geschwindigkeit. Denkbare Zustände wären die Geschwindigkeit, Position des Roboters ausgelesen über die Motoren sowie der Winkel und die Winkeländerungsrate ausgelesen über die IMU. Des Weiteren kann eine Kaskadenregelung umgesetzt werden, sodass eine bessere Positionstreue, insbesondere im beladenen Zustand, erzielt wird.
+
 - **Autonome Navigation & Kartographierung (SLAM)**  
   Eine langfristige Erweiterung ist die Ausstattung mit LiDAR oder Kamera zur Umgebungswahrnehmung. Mittels SLAM (Simultaneous Localization and Mapping) könnte der Roboter eigenständig Räume kartieren und navigieren.
 
-- **Erweiterte Regelungsalgorithmen**  
-  Anstelle des klassischen PID-Reglers könnte ein modellbasierter Zustandsregler eingesetzt werden. Solche Methoden erlauben eine präzisere Reaktion auf komplexe Dynamiken, insbesondere bei wechselnder Last oder höherer Geschwindigkeit. Denkbare Zustände wären die Geschwindigkeit, Position des Roboters ausgelesen über die Motoren sowie der Winkel und die Winkeländerungsrate ausgelesen über die IMU. 
+### Projektarbeit 2 - Mechanische Optimierung und Erweiterung des Roboters durch Not-Aus-Schalter und zusätzlichen Roboterarm
+
+- **Integration eines Not-Aus-Schalters**  
+  Für den sicheren Betrieb ist ein physischer Not-Aus-Schalter essenziell. Dieser soll die Stromzufuhr zu den Motoren sofort unterbrechen und im Fehlerfall Schäden oder Verletzungen verhindern. Der Not-Aus-Schalter muss hierzu über die Enable-Pins des S1-Boards angeschlossen werden. Das notwendige Vorgehen ist in der [ODrive Dokumentation](https://docs.odriverobotics.com/v/latest/manual/error-enable.html) beschrieben.
 
 - **Batteriespannungsüberwachung**  
   Für den sicheren Betrieb des Roboters ist es sinnvoll die Spannungen der Batterien zu überwachen, um so eine Tiefentladung der Batterien zu verhindern. Der sichere Betrieb ist somit gewährleistet, da die Motoren in keinen Fehlerzustand wegen Unterspannung gelangen.
+
+- **Mechanische Verkleidung**
+  Um die empfindlichen elektronischen Komponenten vor äußeren Einflüssen wie Staub, Feuchtigkeit oder mechanischen Stößen zu schützen, soll eine robuste Außenverkleidung entworfen werden. Sie soll außerdem unabsichtliches Anfassen der Komponenten verhindern. Diese sollte wartungsfreundlich umgesetzt sein. Gleichzeitig dient sie der strukturellen Verstärkung des Chassis. Darüber hinaus ist ein Bereich für einen Materialtransport vorzusehen.
+
+- **passive Sicherheitsmaßnahmen**
+  Zur Absicherung bei einem Ausfall der Regelung oder anderer kritischer Fehlerzustände wird ein mechanischer Umfallschutz implementiert. Dieser wirkt als passive Auffangsicherung, die im Ernstfall ein vollständiges Umkippen des Roboters verhindert. Hierdurch sollen außerdem Beschädigungen durch das Umfallen verhindert werden. Denkbare Lösungen sind seitlich oder hinten montierte Stützrollen oder eine dämpfende Fangstruktur (z. B. mit Federn oder Gummipuffern), die bei zu großer Neigung des Roboters den Kontakt zum Boden aufnehmen und ein kontrolliertes Abfangen ermöglichen. Wichtig ist dabei, dass die Konstruktion die normale Bewegung des Roboters nicht einschränkt und möglichst leicht und robust gestaltet ist.
 
 ---
 
